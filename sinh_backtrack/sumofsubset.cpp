@@ -2,17 +2,17 @@
 using namespace std;
 using ll = long long;
 
-//1320
+//CTDL_002
 #define forloop(i, a, b) for (int i = (a); i <= (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
 
-int n, k;
-int X[100];
+int n, k, total = 0;
 int sum = 0, ok = 0;
-int a[1000];
+vector<int> a(1000), X(1000);
+vector<vector<int>> res;
 
-void Try1(int i, int pos)
+void Try1(int i, int pos) // list increasingly
 {
     for (int j = pos; j <= n; j++)
     {
@@ -21,36 +21,33 @@ void Try1(int i, int pos)
         if (sum == k)
         {
             ok = 1;
-            sort(X + 1, X + i + 1);
-            cout << "[";
+            sort(X.begin() + 1, X.begin() + i + 1);
             for (int p = 1; p <= i; p++)
             {
                 (p != i) ? cout << X[p] << " "
                             : cout << X[p];
             }
-            cout << "]";
+            cout << el;
         }
 
         // recursion only if this:
         else if (sum + a[j] <= k)
-            Try1(i + 1, j);
+            Try1(i + 1, j + 1);
         sum -= a[j];
     }
 }
 
-void Try2(int sum, int cnt, int pos)
+void Try2(int sum, int cnt, int pos) // list decreasingly
 {
     if (sum == k)
     {
         ok = 1;
-        sort(X + 1, X + cnt); // optional
-        cout << "[";
-		for (int i = 1; i < cnt; i++)
-        {
-            (i != cnt - 1) ? cout << X[i] << " "
-                        : cout << X[i];
-        }
-        cout << "]";
+        total++;
+        // sort(X + 1, X + cnt); // optional
+        vector<int> tmp;
+		forloop(i, 1, cnt - 1)
+            tmp.push_back(X[i]);
+        res.push_back(tmp);
 		return;
 	}
 
@@ -59,26 +56,34 @@ void Try2(int sum, int cnt, int pos)
         if (sum + a[j] <= k)
         {
             X[cnt] = a[j];
-            Try2(sum + a[j], cnt + 1, j); // j + 1 for distinct elems
+            Try2(sum + a[j], cnt + 1, j + 1); // j + 1 for distinct elems
         }
     }
 }
 
-int main(){
+int main()
+{
     #ifndef ONLINE_JUDGE
     freopen("E:/OneDrive - ptit.edu.vn/pro/dsa/input.txt", "r", stdin);
     freopen("E:/OneDrive - ptit.edu.vn/pro/dsa/output.txt", "w", stdout);
     #endif
 
-    int t; cin >> t;
-    while (t--)
+    cin >> n >> k;
+    forloop(i, 1, n) cin >> a[i];
+    // Try1(1, 1);
+    Try2(0, 1, 1);
+
+    sort(res.begin(), res.end(), greater<vector<int>>());
+    for (auto x : res)
     {
-        cin >> n >> k;
-        forloop(i, 1, n) cin >> a[i];
-        // Try1(1, 1);
-        Try2(0, 1, 1);
-        if (!ok)
-            cout << "-1";
+        for (auto y : x)
+            cout << y << " ";
         cout << el;
     }
+    
+    if (!ok)
+        cout << "-1";
+    else
+        cout << total;
+    cout << el;
 }

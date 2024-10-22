@@ -2,15 +2,18 @@
 using namespace std;
 using ll = long long;
 
-//idhere
+//DSA02001
 #define forloop(i, a, b) for (int i = (a); i <= (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
 
-void backtrack(vector<int> a, int n, int cnt)
+void recursion(vector<int> a, int cnt)
 {
+    // base condition
     if (cnt == 0)
         return;
+    
+    // valid profile
     cout << "[";
     for (int j = 1; j < cnt; j++)
     {
@@ -18,7 +21,9 @@ void backtrack(vector<int> a, int n, int cnt)
         a[j] += a[j + 1];            
     }
     cout << a[cnt] << "]" << el;
-    backtrack(a, n, cnt - 1);
+
+    // driver
+    recursion(a, cnt - 1);
 }
 
 int main()
@@ -36,6 +41,6 @@ int main()
         int n; cin >> n;
         vector<int> a(n + 1);
         forloop(i, 1, n) cin >> a[i];
-        backtrack(a, n, n);
+        recursion(a, n);
     }
 }

@@ -9,7 +9,7 @@ using ll = long long;
 
 int n, k, s;
 int cursum = 0, res = 0;
-int curset[10];
+int curset[30];
 
 // note: j can be replaced by a[j], where a[i] = i, i: 1 -> n
 // why? see sumofsubset.cpp
@@ -82,9 +82,9 @@ int main()
             break;
         // begin with our little 1 as first candidate
         // cnt sure 0
-        moneyset(1, 0);
+        // moneyset(1, 0);
         // this too, sum = cnt = 0
-        // backtrack(1, 0, 0);
+        backtrack(1, 0, 0);
         cout << res << el;
     }
 }

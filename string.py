@@ -11,4 +11,14 @@ several lines of text just as you would do in C.\n\
 Note that whitespace at the beginning of the line is\
 significant."
 s1 = ('ans'.join('bcd'))
-print(s1)
+s2 = 'BAAAA'
+n = 5
+k = 3
+valid_str = 'A' * k
+cnt = 0
+for i in range(n - k + 1):
+    print(s2[i:(i + k)])
+    if s2[i:(i + k + 1)] == valid_str:
+        cnt += 1
+
+print(cnt)

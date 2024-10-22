@@ -1,2 +1,5 @@
 *.exe
 DivideAndConquer.pdf
+test*.py
+test.cpp
+/ref

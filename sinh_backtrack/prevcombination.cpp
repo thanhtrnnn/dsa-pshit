@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 
-//1313
+//DSA01018
 #define forloop(i, a, b) for (int i = (a); i <= (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
@@ -21,7 +21,6 @@ void prevCombination(vector<int> &a, int n, int k)
     if (i != 0) a[i]--;
     forloop(j, i+1, k) a[j] = n - k + j;
     print(a, 1, k);
-    cout << el;
 }
 
 void backtrack(vector<int> &a, int n, int k, int i)
@@ -57,7 +56,8 @@ int main()
         cin >> n >> k;
         vector<int> a(k+1);
         forloop(i, 1, k) cin >> a[i];
-        // prevCombination(a, n, k);
-        backtrack(a, n, k, 1);
+        prevCombination(a, n, k);
+        // backtrack(a, n, k, 1);
+        cout << el;
     }
 }

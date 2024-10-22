@@ -2,10 +2,18 @@
 using namespace std;
 using ll = long long;
 
-//1310
+//DSA01002
 #define forloop(i, a, b) for (int i = (a); i <= (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
+
+void fileio()
+{
+    #ifndef ONLINE_JUDGE
+    freopen("E:/OneDrive - ptit.edu.vn/pro/dsa/input.txt", "r", stdin);
+    freopen("E:/OneDrive - ptit.edu.vn/pro/dsa/output.txt", "w", stdout);
+    #endif
+}
 
 void nextCombination(vector<int> &a, int n, int k)
 {
@@ -20,11 +28,7 @@ void nextCombination(vector<int> &a, int n, int k)
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
-
+    fileio();
     ios::sync_with_stdio(false); cin.tie(0);
 
     int t; cin >> t;

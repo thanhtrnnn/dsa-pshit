@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 
-//idhere
+//DSA02005
 #define forloop(i, a, b) for (int i = (a); i < (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
@@ -37,8 +37,9 @@ int main()
         cin >> s;
         n = s.length();
         backtrack(0);
+        sort(allstr.begin(), allstr.end());
         for (string x : allstr)
-                cout << x << " ";
+            cout << x << " ";
         cout << el;
         allstr.clear();
     }

@@ -25,39 +25,50 @@
 using namespace std;
 
 //_______________________NGUYỄN_NGỌC_TOÀN_______________________//
+//DSA02006
 
 int n, k;
 int M[1000];
 v(string) S;
 
-void Try(int sum, int x, string s) {
-	FOR(i, x, n + 1) {
-		if (sum == k) {
-			s.pop_back();
-			S.pb("["+s+"]");
-			return;
-		}
-		else if (sum < k)Try(sum + M[i], i, s + to_string(M[i]) + " ");
+void Try(int sum, int x, string s) 
+{
+	if (sum == k) 
+	{
+		s.pop_back();
+		S.pb("["+s+"]");
+		return;
+	}
+
+	FOR(i, x, n + 1) 
+	{
+		if (sum <= k)
+			Try(sum + M[i], i + 1, s + to_string(M[i]) + " ");
 		else return;
 	}
 }
-int main() {
+int main() 
+{
 	#ifndef ONLINE_JUDGE
 	freopen("E:/OneDrive - ptit.edu.vn/pro/dsa/input.txt", "r", stdin);
 	freopen("E:/OneDrive - ptit.edu.vn/pro/dsa/output.txt", "w", stdout);
 	#endif
 
 	faster();
-	run() {
+	run() 
+	{
 		S.clear();
 		cin >> n >> k;
-		FOR(i, 1, n + 1)cin >> M[i];
+		FOR(i, 1, n + 1) cin >> M[i];
+		sort(M + 1, M + n + 1);
 		Try(0, 1, "");
-		if (sz(S) == 0) {
+		if (sz(S) == 0) 
+		{
 			cout << -1 << endl;
 			continue;
 		}
-		for (auto c : S)cout << c << "";
+		for (auto c : S)
+			cout << c << " ";
 		cout << endl;
 	}
 }

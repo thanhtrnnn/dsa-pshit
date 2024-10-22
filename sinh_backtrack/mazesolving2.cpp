@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 
-//1318
+//DSA02004
 #define forloop(i, a, b) for (int i = (a); i <= (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
@@ -124,7 +124,7 @@ int main()
             // Try2(1, 1, "");
             // solution 2
             a[1][1] = 0; // never go back to the start - key of the problem
-            // backtrack(1, 1, 0);
+            backtrack(1, 1, 0);
             // Try(1, 1, "");
         }
         if (!ok)

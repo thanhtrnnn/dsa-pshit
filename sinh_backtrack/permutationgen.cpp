@@ -2,13 +2,14 @@
 using namespace std;
 using ll = long long;
 
+//DSA01005
 int n, a[100];
 bool trace[100] = {};
 
 void print()
 {
     for (int i = 1; i <= n; i++) cout << a[i];
-    cout << " ";
+    cout << endl;
 }
 
 void backtrack(int i)
@@ -38,6 +39,11 @@ int main()
 
     ios::sync_with_stdio(false); cin.tie(0);
 
-    cin >> n;
-    backtrack(1);
+    int t; cin >> t;
+    while (t--)
+    {   
+        cin >> n;
+        backtrack(1);
+        cout << endl;
+    }
 }

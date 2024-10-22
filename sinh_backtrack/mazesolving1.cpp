@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 
-//1317
+//DSA02003
 #define forloop(i, a, b) for (int i = (a); i <= (b); i++)
 #define print(a, x, y) forloop(i, x, y) cout << a[i] << " "
 #define el "\n"
@@ -69,6 +69,8 @@ int main()
             forloop(j, 1, n)
                 cin >> a[i][j];
         sex = false;
+        
+        // dead mouse lmao
         if (a[1][1] && a[n][n])
             backtrack(1, 1, "");
         if (!sex) // !sex = true, sex = false/ 0

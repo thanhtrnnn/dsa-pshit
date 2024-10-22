@@ -1,57 +1,42 @@
-import heapq
 import math, sys
 
 #idhere
-fi = open("E:/OneDrive - ptit.edu.vn/pro/dsa/input.txt", mode = 'r')
-fo = open("E:/OneDrive - ptit.edu.vn/pro/dsa/output.txt", mode = 'w')
-sys.stdin = fi
-sys.stdout = fo
+sys.stdin = open("E:/OneDrive - ptit.edu.vn/pro/dsa/input.txt", mode = 'r')
+sys.stdout = open("E:/OneDrive - ptit.edu.vn/pro/dsa/output.txt", mode = 'w')
+input = lambda: sys.stdin.readline().rstrip("\r\n")
+nint = lambda: int(input())
+mint = lambda: map(int, input().split())
+aint = lambda: list(map(int, input().split()))
+###############################################
+# Defining the range
+start, end = mint()
+a, b, c = mint()
+# Helper function to count multiples of a number in the given range
+def count_multiples(n, start, end):
+    return end // n - (start - 1) // n
 
-def find_median(h1, h2):
-    if len(h1) == len(h2):
-        return -h1[0]
-    return -h1[0] if len(h1) > len(h2) else h2[0]
+# Count multiples of 6, 7, 8
+count_a = count_multiples(a, start, end)
+count_b = count_multiples(b, start, end)
+count_c = count_multiples(c, start, end)
 
-def add_num(num, h1, h2):
-    if len(h1) == 0 or num <= -h1[0]:
-        heapq.heappush(h1, -num)
-    else:
-        heapq.heappush(h2, num)
+# Count multiples of least common multiples (LCM)
+count_ab = count_multiples(math.lcm(a, b), start, end)  # LCM(6, 7)
+count_ac = count_multiples(math.lcm(a, c), start, end)  # LCM(6, 8)
+count_bc = count_multiples(math.lcm(b, c), start, end)  # LCM(7, 8)
 
-    if len(h1) > len(h2) + 1:
-        heapq.heappush(h2, -heapq.heappop(h1))
-    if len(h1) < len(h2):
-        heapq.heappush(h1, -heapq.heappop(h2))
+# Count multiples of LCM(6, 7, 8)
+count_abc = count_multiples(math.lcm(a, b, c), start, end)  # LCM(6, 7, 8)
 
-def remove_num(num, h1, h2):
-    if num <= -h1[0]:
-        h1.remove(-num)
-        heapq.heapify(h1)
-    else:
-        h2.remove(num)
-        heapq.heapify(h2)
+# Applying the inclusion-exclusion principle
+total_multiples = (count_a + count_b + count_c
+                   - count_ab - count_ac - count_bc 
+                   + count_abc)
 
-    if len(h1) + 1 < len(h2):
-        heapq.heappush(h1, -heapq.heappop(h2))
-    elif len(h1) > len(h2) + 1:
-        heapq.heappush(h2, -heapq.heappop(h1))
+# Total numbers in the range [5000, 10000]
+total_numbers = end - start + 1
 
-# Nhập số lượng truy vấn
-Q = int(input())
+# Numbers not divisible by 6, 7, or 8
+result = total_numbers - total_multiples
+print(result)
 
-# Khởi tạo hai heap
-h1 = []  # min-heap
-h2 = []  # max-heap
-
-# Xử lý các truy vấn
-for _ in range(Q):
-    query = input().split()
-    operation = query[0]
-    if operation == 'add':
-        num = int(query[1])
-        add_num(num, h1, h2)
-    elif operation == 'del':
-        num = int(query[1])
-        remove_num(num, h1, h2)
-    else:
-        print(find_median(h1, h2))
