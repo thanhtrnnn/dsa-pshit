@@ -2,11 +2,14 @@
 using namespace std;
 using ll = long long;
 
-//idhere
+//DSA08018
 #define forup(i, a, b)      for (int i = (a); i < (b); i++)
 #define fordown(i, l, r)    for (int i = l; i >= r; i--)
-#define print(a, x, y)      forup(i, x, y) cout << a[i] << " "
+#define print(a, x, y)      forup(z, x, y) cout << a[z] << " "; cout << el
 #define all(M)              M.begin(), M.end()
+#define tests()             int t; cin >> t; while (t--)
+#define mod                 (int)(1e9 + 7)
+#define size(a)             (int)a.size()
 #define el                  "\n"
 
 void fileio()
@@ -18,23 +21,40 @@ void fileio()
 }
 
 vector<string> genString;
-void init()
+void gen(int n)
+{
+    queue<string> q;
+    q.push("6");
+    q.push("8");
+    int curr = 0;
+    while (curr <= n)
+    {
+        string top = q.front();
+        q.pop();
+        genString.push_back(top);
+        q.push(top + "6");
+        q.push(top + "8");
+        curr = size(q.front());
+    }
+}
+
+void gen2(int n) // declare vec out of main -> less memory
 {
     queue<string> q;
     q.push("6");
     q.push("8");
     genString.push_back("6");
     genString.push_back("8");
-    while (true)
+    int curr = 0;
+    while (curr < n)
     {
         string top = q.front();
         q.pop();
-        if (top.length() == 15)
-            break;
         genString.push_back(top + "6");
         genString.push_back(top + "8");
         q.push(top + "6");
         q.push(top + "8");
+        curr = size(q.front());
     }
 }
 
@@ -43,20 +63,15 @@ int main()
     fileio();
     ios::sync_with_stdio(false); cin.tie(0);
 
-    init();
-    int t; cin >> t;
-    while(t--)
+    tests()
     {
         int n; cin >> n;
-        vector<string> res;
+        gen(n);
+
+        cout << size(genString) << el;
         for (string x : genString)
-        {
-            if (x.length() > n) break;
-            res.push_back(x);
-        }
-        reverse(res.begin(), res.end());
-        for (string kmm : res)
-            cout << kmm << " ";
+            cout << x << ' ';
         cout << el;
+        genString.clear();
     }
 }

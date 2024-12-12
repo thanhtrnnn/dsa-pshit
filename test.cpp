@@ -1,5 +1,14 @@
-#include <bits/stdc++.h>
-
+#include<iostream>
+#include<vector>
+#include<iomanip>
+#include<algorithm>
+#include<string.h>
+#include<string>
+#include<climits>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
 using namespace std;
 
 #define mod              1000000007
@@ -19,7 +28,7 @@ using namespace std;
 #define cin(M,n)         FOR(i,0,n)cin>>M[i]
 #define cout(M,n)        FOR(i,0,n)cout<<M[i]<<" "
 #define rs(M,x)          memset(M,x,sizeof(M))
-#define reset()          FOR(i, 0, 1001)A[i].clear(),check[i]=false
+#define reset(A, check)  FOR(i, 0, 1005)A[i].clear(),check[i]=false
 #define faster()         cin.tie(0); ios_base::sync_with_stdio(false); cout.tie(0);
 #define run()            int t; cin >> t; while (t--)
 #define pq(x)            priority_queue<x>
@@ -98,10 +107,41 @@ string operator*(string a, int b)
     return c;
 }
 
-int main() {
-    fileio();
-    faster();
-	int n; cin >> n;
-    cout << (1 << n) << endl;
+ll n,c;
+ll cnt;
+int X[100] = {};
+void Try(int n , int k, int index, int pos){
+    if ( index == n){
+        if ( k == 0){
+            cnt++;
+        }
+        return;
+    }
+    for (int j = pos ; j <= k ; j++){
+        X[index] = j;
+        Try(n, k - j, index + 1, j);
+    }
 }
 
+int main()
+{
+    fileio();
+    faster();
+
+    cnt = 0;
+
+    cin >> n >> c;
+    Try(n,c,0,1);
+
+    cout << cnt << "\n";
+    vector<ll> ans(n, c/n);
+    int tmp = c % n;
+    for (int i = n - 1 ; i >= n - tmp ; i--){
+        ans[i]++;
+    }
+    for (int i = n - 1 ; i >= 0 ; i--){
+        cout << ans[i]<< " ";
+    }
+
+
+}

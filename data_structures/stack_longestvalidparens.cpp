@@ -19,7 +19,6 @@ void fileio()
     #endif
 }
 
-
 int main()
 {
     fileio();
@@ -27,9 +26,23 @@ int main()
 
     tests()
     {
-        int n; cin >> n;
-        vector<int> a(n);
-        forup(i, 0, n) cin >> a[i];
-        
+        string s;
+        cin >> s;
+        stack<int> st;
+        st.push(-1); // if valid starts from 0
+        int res = 0;
+        forup(i, 0, (int)s.length())
+        {
+            if (s[i] == '(')
+                st.push(i);
+            else {
+                st.pop(); // valid parens substr not starting here
+                if (!st.empty()) 
+                    res = max(res, i - st.top());
+                else 
+                    st.push(i); // maybe the start of another valid
+            }
+        }
+        cout << res << el;
     }
 }

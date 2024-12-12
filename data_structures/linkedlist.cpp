@@ -28,7 +28,7 @@ struct node
     node(int x, node *next): num(x), next(next) {};
 };
 
-void input(node *&list, int n)
+void input(node *&list, int &n)
 {
     node *curr = list;
     forup(i, 0, n)
@@ -77,8 +77,8 @@ void insert(node *&list, int val, int pos)
     else { // else if (pos > 0 && pos <= n)
         forup(i, 1, pos)
             target = target->next;
-        neo->next = target->next;
-        target->next = neo;
+        neo->next = target->next; // 9 noi voi 3
+        target->next = neo; // 2 noi voi 9
     }
 }
 
@@ -125,9 +125,9 @@ int main()
         node *list = new node();
         input(list, n);
         printlist(list);
-        insert(list->next, 22, 5);
-        pop(list->next, 5);
-        reverse(list->next);
+        insert(list->next, 9, 2);
+        //pop(list->next, 5);
+        // reverse(list->next);
         printlist(list);
     }
 }

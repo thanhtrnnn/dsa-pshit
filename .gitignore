@@ -2,4 +2,6 @@
 DivideAndConquer.pdf
 test*.py
 test.cpp
+input.txt
+output.txt
 /ref

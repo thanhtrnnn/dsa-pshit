@@ -21,7 +21,7 @@ def matproduct(x, y):
 
 def binpow(mat, n):
     # equivalent to res = 1
-    res = matrix([[1, 0], [0, 1]])
+    res = matrix([[1, 0], [0, 1]])  
     # right shift bits till no bits left
     while (n != 0):
         # multiply res to mat only when last bit of n = 1

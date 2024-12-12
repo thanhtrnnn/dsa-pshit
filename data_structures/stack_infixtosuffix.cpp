@@ -19,7 +19,7 @@ void fileio()
     #endif
 }
 
-int priority_oprt(char c)
+int operator_rank(char c)
 {
     switch (c)
     {
@@ -62,7 +62,7 @@ int main()
 			}
             else {
                 // eg: c = '+', st.top() = '*'
-                while (!st.empty() && priority_oprt(c) >= priority_oprt(st.top()))
+                while (!st.empty() && operator_rank(c) >= operator_rank(st.top()))
                 {
                     res += st.top(); // add the oprt with more priority to res
                     st.pop();

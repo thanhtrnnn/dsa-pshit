@@ -4,14 +4,26 @@ using ll = long long;
 
 #define forloop(i, a, b) for (int i = (a); i < (b); i++)
 
+bool is_Prime(int n)
+{
+    if (n % 2 == 0 || n % 3 == 0) 
+        return 0;
+
+    for (int i = 5; i * i <= n; i += 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return 0;
+
+    return n > 1;
+}
+
 vector<bool> isPrime;
 void sieve(int n) 
 {
     isPrime.push_back(false);
     isPrime.push_back(false);
-    for (int i = 2; i <= n; i++) {
+    for (int i = 2; i <= n; i++) 
         isPrime.push_back(true);
-    }
+    
     for (int i = 2; i * i <= n; i++) {
         if (isPrime[i]) {
             for (int j = i * i; j <= n; j += i) {

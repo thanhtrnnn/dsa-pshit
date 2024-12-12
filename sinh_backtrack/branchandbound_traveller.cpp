@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 
-//idhere
+//DSA02027
 #define forup(i, a, b)      for (int i = (a); i < (b); i++)
 #define fordown(i, l, r)    for (int i = l; i >= r; i--)
 #define print(a, x, y)      forup(i, x, y) cout << a[i] << " "
@@ -11,7 +11,8 @@ using ll = long long;
 #define mod                 (int)(1e9 + 7)
 #define el                  "\n"
 
-int n, sol[105], price[105][105];
+int n, price[105][105];
+vector<int> sol, bestsol;
 int current = 0, res = INT_MAX, min_unitprice = INT_MAX;
 bool visited[105];
 
@@ -27,6 +28,7 @@ void input()
                 min_unitprice = min(min_unitprice, price[i][j]);
         }
     }
+    sol.resize(n + 1);
     memset(visited, false, sizeof(visited)); 
 }
 
@@ -41,7 +43,13 @@ void backtrack(int pos)
             current += price[sol[pos - 1]][i]; // sol[pos - 1] -> sol[pos]
 
             if (pos == n)
-                res = min(res, current + price[sol[n]][1]); // sol[n] -> 1
+            {
+                if (res > current + price[sol[n]][1])
+                {
+                    bestsol = sol;
+                    res = current + price[sol[n]][1]; // sol[n] -> 1
+                }
+            }
             // rule out the lower bound
             // assume travelling to other cities with min unit price
             else if (current + (n - pos + 1) * min_unitprice < res)
@@ -71,4 +79,5 @@ int main()
     visited[1] = true;
     backtrack(2);
     cout << res << el;
+    print(bestsol, 1, n + 1);
 }
