@@ -304,6 +304,7 @@ C
 
 
 
+
 Câu hỏi 25
 Hard
 Một đáp án
@@ -326,3 +327,128 @@ BCNF
 D
 1NF
 
+Câu hỏi 26
+Easy
+Một đáp án
+
+Thực thể Product có thuộc tính Tag đa trị. Quan hệ nào dưới là đúng?
+
+
+A
+TAG(Tag PK); PRODUCT(PID PK, Tag FK)
+
+
+*B
+PRODUCT(PID PK); PRODUCT_TAG(PID FK, Tag, PK(PID,Tag))
+
+
+C
+PRODUCT(PID PK, Tags TEXT)
+
+
+D
+PRODUCT(PID PK, Tag1, Tag2, Tag3)
+
+Câu hỏi 27
+Medium
+Một đáp án
+
+Cho lược đồ ERD:
+
+https://dbapi.ptit.edu.vn/api/assignment/exam-media/files/questions/e9475a30-bab4-4ab0-b70b-2abd4e74e5bd/1764123945794_image.png
+
+Quan hệ nào dưới thể hiện lược đô trên?
+
+
+*A
+SUPPLIER(SID PK); PART(PID PK); SUPPLY(SID FK, PID FK, Price, PK(SID,PID))
+
+
+B
+SUPPLIER(SID PK, PID FK, Price); PART(PID PK)
+
+
+C
+SUPPLIER_PART(SID PK, PID PK, Price)
+
+
+D
+PART(PID PK, SID FK, Price); SUPPLIER(SID PK)
+
+Câu hỏi 28
+Medium
+Một đáp án
+
+Cho lược đồ ERD:
+
+https://dbapi.ptit.edu.vn/api/assignment/exam-media/files/questions/04c17257-441f-42c5-b5da-aec492418baa/1764123861174_image.png
+
+Quan hệ nào dưới đây thể hiện lược đồ trên ?
+
+
+A
+PRESC(DoctorID,PatientID,PK(DoctorID,PatientID)); MED(MedID PK)
+
+
+B
+MED(MedID PK, Dose, Date)
+
+
+*C
+PRESC(DoctorID FK, PatientID FK, MedID FK, Dose, Date, PK(DoctorID,PatientID,MedID,Date))
+
+
+D
+DOCTOR_PATIENT(DoctorID,PatientID,PK(DoctorID,PatientID)); PRESC(MedID,Dose,Date)
+
+Câu hỏi 29
+Hard
+Một đáp án
+
+Cho lược đồ ERD:
+https://dbapi.ptit.edu.vn/api/assignment/exam-media/files/questions/a4c8a28e-8fa2-4f74-ba17-d796c9edb3fa/1764123394545_image.png
+
+
+Quan hệ nào dưới đây thể hiện lược đồ trên ?
+
+
+A
+VEHICLE(VID PK, Seats, Capacity)
+
+
+B
+VEHICLE(VID PK); VEHICLE_TYPE(VID, Type, Seats, Capacity)
+
+
+*C
+VEHICLE(VID PK); CAR(VID PK/FK→VEHICLE, Seats); TRUCK(VID PK/FK→VEHICLE, Capacity)
+
+
+D
+CAR(VID PK, Seats); TRUCK(VID PK, Capacity)
+
+Câu hỏi 30
+Hard
+Một đáp án
+
+Cho lược đồ ERD:
+https://dbapi.ptit.edu.vn/api/assignment/exam-media/files/questions/b9ca5825-5299-4d7a-8084-da023ed25f5c/1764123232700_image.png
+
+
+Quan hệ nào dưới đây thể hiện lược đồ trên?
+
+
+*A
+COURSE(SID UNIQUE/FK→SYLLABUS)
+
+
+B
+COURSE_SYLLABUS(CID,SID) PK(CID,SID)
+
+
+C
+COURSE(CID PK) và SYLLABUS(SID PK) không ràng buộc
+
+
+D
+SYLLABUS(CID UNIQUE/FK→COURSE)
