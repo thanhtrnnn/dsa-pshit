@@ -302,7 +302,203 @@ C
 *D
 {A,B,C,E,D}
 
+Câu hỏi 16
+Easy
+Một đáp án
 
+Cho quan hệ R(A,B,C), F={A→B, B→C}. Khóa ứng viên là?
+
+
+A
+AC
+
+
+B
+BC
+
+
+*C
+A
+
+
+D
+AB
+
+Câu hỏi 17
+Easy
+Một đáp án
+
+Cho quan hệ R(A,B,C,D), F={A→B, C→D}. Khóa ứng viên là?
+
+
+A
+AD
+
+
+B
+C
+
+
+*C
+AC
+
+
+D
+A
+
+Câu hỏi 18
+Medium
+Một đáp án
+
+Cho quan hệ R(A,B,C), F={A→B, B→C}. Dạng chuẩn cao nhất mà quan hệ đáp ứng?
+
+
+*A
+2NF (không 3NF)
+
+
+B
+3NF (không BCNF)
+
+
+C
+1NF
+
+
+D
+BCNF
+
+Câu hỏi 19
+Medium
+Một đáp án
+
+Cho quan hệ R(A,B,C), F={AB→C, C→B}. Tập khóa ứng viên là?
+
+
+A
+{C}
+
+
+B
+{A,B,C}
+
+
+*C
+{AB, AC}
+
+
+D
+{A}
+
+Câu hỏi 20
+Medium
+Một đáp án
+
+Cho quan hệ R(A,B,C,D), F={A↔B, C→D}. Khóa ứng viên là?
+
+
+*A
+{AC, BC}
+
+
+B
+{AB}
+
+
+C
+{C}
+
+
+D
+{A}
+
+Câu hỏi 21
+Hard
+Một đáp án
+
+Cho quan hệ R(A,B,C) có khóa AB; F có A→C.Quan hệ vi phạm chuẩn nào dưới đây?
+
+
+*A
+BCNF
+
+
+B
+3NF (bắc cầu)
+
+
+C
+2NF (phụ thuộc bộ phận)
+
+
+D
+Không vi phạm
+
+Câu hỏi 22
+Hard
+Một đáp án
+
+Cho quan hệ R(A,B,C), F={A↔B, B→C}. Dạng chuẩn cao nhất mà quan hệ đáp ứng là?
+
+
+A
+3NF
+
+
+*B
+2NF
+
+
+C
+1NF
+
+
+D
+BCNF
+
+Câu hỏi 23
+Hard
+Một đáp án
+
+Cho quan hệ R(A,B,C,D), F={A→B, B→C, C→D}. Khóa ứng viên là?
+
+
+*A
+A
+
+
+B
+BC
+
+
+C
+AB
+
+
+D
+AC
+
+Câu hỏi 24
+Hard
+Một đáp án
+
+Cho quan hệ R(A,B,C,D), F={AB→C, C→D}. Siêu khóa nào đúng?
+
+
+A
+AC
+
+
+B
+A
+
+
+*C
+AB
+
+
+D
+C
 
 
 Câu hỏi 25
