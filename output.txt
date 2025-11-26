@@ -152,3 +152,60 @@ C
 
 D
 {A,B,C}
+
+Câu hỏi 8
+Medium
+Một đáp án
+
+F={A→BC, C→D, D→E}. A+ là?
+
+
+A
+{A,D,E}
+
+
+B
+{A,B,C}
+
+
+C
+{A,B,D}
+
+
+*D
+{A,B,C,D,E}
+
+Câu hỏi 9
+Medium
+Một đáp án
+F={A→B, B→C}. BC+ là?
+*A
+{B,C}
+B
+{C}
+C
+{B}
+D
+{A,B,C}
+
+Câu hỏi 10
+Medium
+Một đáp án
+
+F={AB→C, C→A}. Phụ thuộc nào đúng?
+
+
+A
+A→B
+
+
+B
+B→A
+
+
+C
+C→B
+
+
+*D
+AB→A
