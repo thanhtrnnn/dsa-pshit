@@ -10,6 +10,7 @@ def fileio():
     sys.stdin = open("E:/OneDrive - ptit.edu.vn/pro/dsa/input.txt", mode = 'r')
     sys.stdout = open("E:/OneDrive - ptit.edu.vn/pro/dsa/output.txt", mode = 'w')
 ###############################################
+fileio()
 def add_edge(u, v):
     adj[u].append(v)
     adj[v].append(u)

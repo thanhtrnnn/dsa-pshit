@@ -36,7 +36,7 @@ void backtrack(int i)
     {
         a[i] = j;
         if (i == k)
-        {
+        {s
             for (int i = 1; i <= k; i++) cout << a[i];
             cout << " ";
         }

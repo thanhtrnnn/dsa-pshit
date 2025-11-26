@@ -34,7 +34,7 @@ void dfs(int u, bool &found)
 			dfs(v, found);
 		}
 		// v is adj to u, v is not prev to u -> back to the start
-		else if (pre[u] == 0)
+		else if (pre[v] == 0)
 		{
 			found = 1;
 			break;

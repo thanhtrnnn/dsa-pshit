@@ -10,6 +10,7 @@ nint = lambda: int(input())
 mint = lambda: map(int, input().split())
 aint = lambda: list(map(int, input().split()))
 ###############################################
+fileio()
 def add_edge(u, v):
     adj[u].append(v)
     adj[v].append(u)

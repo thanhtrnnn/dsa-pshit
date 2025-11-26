@@ -27,7 +27,7 @@ def bfs(curr, visited):
             if not visited[vertex]:
                 queue.append(vertex)
                 visited[vertex] = True
-
+    
     printlist(path)
 
 fileio()

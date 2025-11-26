@@ -1,1 +1,154 @@
-1 4 1 2 1 3 2 0 3 0 
+Câu hỏi 1
+Easy
+Một đáp án
+
+Trong lược đồ quan hệ, thuộc tính dẫn xuất của ER thường được xử lý thế nào khi ánh xạ sang quan hệ?
+
+
+A
+Ghép vào khóa chính
+
+
+B
+Luôn tạo bảng riêng cho thuộc tính này
+
+
+*C
+Bỏ qua và tính bằng view/truy vấn khi cần
+
+
+D
+Bắt buộc lưu thành một cột NOT NULL
+
+Câu hỏi 2
+Medium
+Một đáp án
+
+Khi ánh xạ mối quan hệ N–N có thuộc tính mô tả (như Quantity), lựa chọn đúng là?
+
+
+A
+Gộp thuộc tính mô tả vào một trong hai bảng thực thể
+
+
+*B
+Tạo bảng quan hệ trung gian với khóa là (FK1, FK2) và thêm các thuộc tính mô tả
+
+
+C
+Tạo cột lặp (repeating groups) trong một bảng
+
+
+D
+Dùng một khóa ngoại chuỗi để tham chiếu cả hai bảng
+
+Câu hỏi 3
+Medium
+Một đáp án
+
+Trong ER, thuộc tính tổng hợp Address{Street, City, Zip} của Customer khi ánh xạ sang mô hình quan hệ nên được biểu diễn như thế nào?
+
+
+A
+Ghép các thành phần vào khóa chính của CUSTOMER
+
+
+B
+Tạo bảng ADDRESS riêng không có khóa ngoại
+
+
+*C
+Tách thành các cột riêng trong cùng bảng CUSTOMER (Street, City, Zip)
+
+
+D
+Lưu Address vào một cột TEXT duy nhất
+
+Câu hỏi 4
+Hard
+Một đáp án
+
+Một lược đồ có ràng buộc: Course(1) — has — Syllabus(1) và cả hai phía đều tham gia toàn thể. Cách ánh xạ giữ ràng buộc 1–1 chặt chẽ nhất trong SQL?
+
+
+*A
+Đặt FK duy nhất (UNIQUE) ở một phía và đồng thời đặt cột đó là PK của bảng phụ thuộc
+
+
+B
+Đặt CHECK constraint trên cả hai bảng
+
+
+C
+Giữ hai bảng độc lập không FK để tránh vòng phụ thuộc
+
+
+D
+Tạo bảng ghép COURSE_SYLLABUS(CID,SID) PK(CID,SID)
+
+Câu hỏi 5
+Cho lược đồ:
+
+https://dbapi.ptit.edu.vn/api/assignment/exam-media/files/questions/01e4165b-e420-4a0c-affe-97a58f78b161/1764124915646_image.png
+
+Quan hệ nào đưới đây thể hiện lược đồ trên?
+
+
+A
+PERSON chứa tất cả cột của Student và Staff, bỏ hai bảng con
+
+
+B
+STUDENT(SID PK,…); STAFF(StaffID PK,…); không cần bảng PERSON
+
+
+*C
+PERSON(PID PK,…); STUDENT(PID PK/FK→PERSON,…); STAFF(PID PK/FK→PERSON,…)
+
+
+D
+PERSON(PID PK,…); STUDENT(SID PK,…); STAFF(StaffID PK,…)
+
+Câu hỏi 6
+Easy
+Một đáp án
+
+F={A→B, B→C}. Mệnh đề suy ra đúng?
+
+
+A
+C→B
+
+
+*B
+A→C
+
+
+C
+AB↛C
+
+
+D
+C→A
+
+Câu hỏi 7
+Easy
+Một đáp án
+
+F={AB→C, C→D}. AB+ là?
+
+
+*A
+{A,B,C,D}
+
+
+B
+{A,B,D}
+
+
+C
+{A,B}
+
+
+D
+{A,B,C}

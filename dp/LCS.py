@@ -28,3 +28,17 @@ for _ in range(t):
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
     
     print(dp[len1][len2])
+
+    # Reconstruct the LCS from the dp table
+    res = ''
+    while len1 and len2:
+        if s1[len1 - 1] == s2[len2 - 1]:
+            res = s1[len1 - 1] + res
+            len1 -= 1
+            len2 -= 1
+        elif dp[len1 - 1][len2] > dp[len1][len2 - 1]:
+            len1 -= 1
+        else:
+            len2 -= 1
+
+    print(res)

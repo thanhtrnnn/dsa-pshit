@@ -2,14 +2,15 @@
 using namespace std;
 using ll = long long;
 
-//DSA09020
+//idhere
 #define forup(i, a, b)      for (int i = (a); i < (b); i++)
 #define fordown(i, l, r)    for (int i = l; i >= r; i--)
 #define print(a, x, y)      forup(z, x, y) cout << a[z] << " "; cout << el
 #define all(M)              M.begin(), M.end()
 #define tests()             int t; cin >> t; while (t--)
 #define mod                 (int)(1e9 + 7)
-#define size(a)             (int)a.size()
+#define maxn                (int)(2e5 + 7)
+#define len(a)              (int)a.size()
 #define el                  "\n"
 
 void fileio()
@@ -20,26 +21,33 @@ void fileio()
     #endif
 }
 
+int n;
+vector<ll> bit(maxn + 1, 0); // BIT for maximum
+void update(int i, ll v) {
+    for (; i <= n; i += i & -i)
+        bit[i] = max(bit[i], v);
+}
+
+ll query(int i) {
+    // Query the maximum value in the BIT up to index i
+    ll res = 0;
+    for (; i > 0; i -= i & -i)
+        res = max(res, bit[i]);
+    return res;
+}
 
 int main()
 {
     fileio();
     ios::sync_with_stdio(false); cin.tie(0);
 
-    int n; cin >> n;
-    cin.ignore();
-    int adj[n + 1][n + 1] = {};
-    forup(i, 1, n + 1)
-    {
-        string s, buf; 
-        getline(cin, s);
-		stringstream ss(s);
-		while (ss >> buf)
-			adj[i][stoi(buf)] = 1;
+    cin >> n;
+    vector<int> h(n), a(n);
+    forup(i, 0, n) cin >> h[i];
+    forup(i, 0, n) cin >> a[i];
+    forup(i, 0, n) {
+        ll val = query(h[i] - 1) + a[i];
+        update(h[i], val);
     }
-    
-    forup(i, 1, n + 1)
-    {
-        print(adj[i], 1, n + 1);
-    }
+    cout << query(n) << el;
 }
