@@ -254,3 +254,75 @@ B
 D
 {A,C,D,E}
 
+Câu hỏi 13
+Hard
+Một đáp án
+
+R(A,B,C,D), F={AB→C, C→D, D→A}. Khóa tối thiểu nào có thể?
+
+
+A
+AC
+
+
+B
+BD
+
+
+C
+AD
+
+
+*D
+AB
+
+Câu hỏi 14
+Hard
+Một đáp án
+F={A→B, B→C, C→A}. A+ là?
+A
+{A}
+*B
+{A,B,C}
+C
+{B,C}
+D
+{A,B}
+
+Câu hỏi 15
+Hard
+Một đáp án
+F={AB→C, C→E, E→D}. (AB)+ là?
+A
+{A,B,C,E}
+B
+{A,B,C}
+C
+{A,B,D}
+*D
+{A,B,C,E,D}
+
+
+
+Câu hỏi 25
+Hard
+Một đáp án
+
+Cho quan hệ R(A,B,C,D), F={A→B, B→C, C→D}. Dạng chuẩn cao nhất mà quan hệ đáp ứng là?
+
+
+A
+3NF (không BCNF)
+
+
+*B
+2NF (không 3NF)
+
+
+C
+BCNF
+
+
+D
+1NF
+
