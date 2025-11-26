@@ -209,3 +209,48 @@ C→B
 
 *D
 AB→A
+
+Câu hỏi 11
+Hard
+Một đáp án
+
+F={A→B, B→C, AC→D}. Mệnh đề đúng?
+
+
+A
+B→D
+
+
+*B
+A→D
+
+
+C
+D→A
+
+
+D
+C→D
+
+Câu hỏi 12
+Hard
+Một đáp án
+
+F={A→B, B→C, CD→E}. AD+ là?
+
+
+A
+{A,B,D}
+
+
+B
+{A,B,C,D}
+
+
+*C
+{A,B,C,D,E}
+
+
+D
+{A,C,D,E}
+
